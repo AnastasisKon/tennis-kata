@@ -10,7 +10,7 @@ public class TennisGame
 
     public void AddPointPlayer1()
     {
-        if (Player2Score == 4)
+        if (Player2Score == 4 && Player2Score != Player1Score)
         {
             Player2Score--;
         }
@@ -22,7 +22,7 @@ public class TennisGame
 
     public void AddPointPlayer2()
     {
-        if (Player1Score == 4)
+        if (Player1Score == 4 && Player2Score != Player1Score)
         {
             Player1Score--;
         }
@@ -78,7 +78,7 @@ public class TennisGame
             }
             else
             {
-                return "Player" + PlayerInFront(Player1Score, Player2Score) + " is " + ScoreDifference(Player1Score, Player2Score) + "points ahead, Score: " + EncodeScore(Player1Score) + "-" + EncodeScore(Player2Score);
+                return "Player" + PlayerInFront(Player1Score, Player2Score) + " is " + ScoreDifference(Player1Score, Player2Score) + " point(s) ahead, Score: " + EncodeScore(Player1Score) + " - " + EncodeScore(Player2Score);
             }
         }
        else
@@ -89,7 +89,7 @@ public class TennisGame
             }
             else
             {
-                return EncodeScore(Player1Score) + "All";
+                return EncodeScore(Player1Score) + " All";
             }
         }
     }
