@@ -62,19 +62,20 @@ public class TennisGame
 
     public string ScoreMessage()
     {   
-        if (PlayerInFront(Player1Score, Player2Score) != 0)
+        int LeadingPlayer = PlayerInFront(Player1Score, Player2Score);
+        if (LeadingPlayer != 0)
         {
             if ((ScoreDifference(Player1Score, Player2Score) >= 2 && Player1Score >= 4) || (ScoreDifference(Player1Score, Player2Score) >= 2 && Player2Score >= 4))
             {
-                return "Player" + PlayerInFront(Player1Score, Player2Score) + " wins!";
+                return $"Player{LeadingPlayer} wins!";
             }
             else if ((ScoreDifference(Player1Score, Player2Score) >= 1 && Player1Score >= 4) || (ScoreDifference(Player1Score, Player2Score) >= 1 && Player2Score >= 4))
             {
-                return "Player" + PlayerInFront(Player1Score, Player2Score) + " has the advantage";
+                return $"Player{LeadingPlayer} has the advantage";
             }
             else
             {
-                return "Player" + PlayerInFront(Player1Score, Player2Score) + " is " + ScoreDifference(Player1Score, Player2Score) + " point(s) ahead, Score: " + EncodeScore(Player1Score) + " - " + EncodeScore(Player2Score);
+                return $"Player{LeadingPlayer} is {ScoreDifference(Player1Score, Player2Score)} point(s) ahead, Score: {EncodeScore(Player1Score)} - {EncodeScore(Player2Score)}";
             }
         }
         else
@@ -85,7 +86,7 @@ public class TennisGame
             }
             else
             {
-                return EncodeScore(Player1Score) + " All";
+                return $"{EncodeScore(Player1Score)} All";
             }
         }
     }
