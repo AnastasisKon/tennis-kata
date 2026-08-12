@@ -1,34 +1,28 @@
-﻿using System.Collections;
-using System.Reflection.Emit;
-
-namespace Tennis;
+﻿namespace Tennis;
 
 public class TennisGame
 {
-    int Player1Score = 0;
-    int Player2Score = 0;
+    private int Player1Score = 0;
+    private int Player2Score = 0;
 
     public void AddPointPlayer1()
     {
-        if (Player2Score == 4 && Player2Score != Player1Score)
-        {
-            Player2Score--;
-        }
+        if (Player2Score - Player1Score >= 2 && Player1Score >= 2)  // So it does not add points if the game has ended
+            return ;
         else
-        {
-            Player1Score++;
-        }
+            {
+                Player1Score++;
+            }
     }
 
     public void AddPointPlayer2()
     {
-        if (Player1Score == 4 && Player2Score != Player1Score)
-        {
-            Player1Score--;
-        }
+        if (Player1Score - Player2Score >= 2 && Player2Score >= 2)  // So it does not add points if the game has ended
+
+            return ;
         else
         {
-            Player2Score++;
+            Player2Score++;            
         }
     }
 
@@ -44,14 +38,12 @@ public class TennisGame
                 return "30";
             case 3:
                 return "40";
-            case 4:
-                return "Adv.";
             default:
                 return "Unknown";  
         }
     }
 
-    public int PlayerInFront(int Player1Score, int Player2Score)
+    private int PlayerInFront(int Player1Score, int Player2Score)
     {
         if (Player1Score - Player2Score > 0)
             return 1;
@@ -63,27 +55,31 @@ public class TennisGame
             return 0;
     }
 
-    public int ScoreDifference(int Player1Score, int Player2Score)
+    private int ScoreDifference(int Player1Score, int Player2Score)
     {
         return Math.Abs(Player1Score - Player2Score);
     }
 
-    public string ScoreMessage(int Player1Score, int Player2Score)
+    public string ScoreMessage()
     {   
         if (PlayerInFront(Player1Score, Player2Score) != 0)
         {
-            if (ScoreDifference(Player1Score, Player2Score) >= 2 && (Player1Score >= 2 || Player2Score >= 2))
+            if ((ScoreDifference(Player1Score, Player2Score) >= 2 && Player1Score >= 4) || (ScoreDifference(Player1Score, Player2Score) >= 2 && Player2Score >= 4))
             {
                 return "Player" + PlayerInFront(Player1Score, Player2Score) + " wins!";
+            }
+            else if ((ScoreDifference(Player1Score, Player2Score) >= 1 && Player1Score >= 4) || (ScoreDifference(Player1Score, Player2Score) >= 1 && Player2Score >= 4))
+            {
+                return "Player" + PlayerInFront(Player1Score, Player2Score) + " has the advantage";
             }
             else
             {
                 return "Player" + PlayerInFront(Player1Score, Player2Score) + " is " + ScoreDifference(Player1Score, Player2Score) + " point(s) ahead, Score: " + EncodeScore(Player1Score) + " - " + EncodeScore(Player2Score);
             }
         }
-       else
+        else
         {
-            if (Player1Score == 3)
+            if (Player1Score >= 3)
             {
                 return "Deuce";
             }
