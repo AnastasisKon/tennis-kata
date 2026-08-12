@@ -1,0 +1,12 @@
+/Users/anastaseskonstantaras/Desktop/tennis kata/Tennis/bin/Debug/net10.0/Tennis.deps.json
+/Users/anastaseskonstantaras/Desktop/tennis kata/Tennis/bin/Debug/net10.0/Tennis.dll
+/Users/anastaseskonstantaras/Desktop/tennis kata/Tennis/bin/Debug/net10.0/Tennis.pdb
+/Users/anastaseskonstantaras/Desktop/tennis kata/Tennis/obj/Debug/net10.0/Tennis.GeneratedMSBuildEditorConfig.editorconfig
+/Users/anastaseskonstantaras/Desktop/tennis kata/Tennis/obj/Debug/net10.0/Tennis.AssemblyInfoInputs.cache
+/Users/anastaseskonstantaras/Desktop/tennis kata/Tennis/obj/Debug/net10.0/Tennis.AssemblyInfo.cs
+/Users/anastaseskonstantaras/Desktop/tennis kata/Tennis/obj/Debug/net10.0/Tennis.csproj.CoreCompileInputs.cache
+/Users/anastaseskonstantaras/Desktop/tennis kata/Tennis/obj/Debug/net10.0/Tennis.sourcelink.json
+/Users/anastaseskonstantaras/Desktop/tennis kata/Tennis/obj/Debug/net10.0/Tennis.dll
+/Users/anastaseskonstantaras/Desktop/tennis kata/Tennis/obj/Debug/net10.0/refint/Tennis.dll
+/Users/anastaseskonstantaras/Desktop/tennis kata/Tennis/obj/Debug/net10.0/Tennis.pdb
+/Users/anastaseskonstantaras/Desktop/tennis kata/Tennis/obj/Debug/net10.0/ref/Tennis.dll
