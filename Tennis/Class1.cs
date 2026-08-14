@@ -5,21 +5,34 @@ public class TennisGame
     private int Player1Score = 0;
     private int Player2Score = 0;
 
+    private bool VerboseFlag = true;
+
     public void AddPointPlayer1()
     {
         if (Player2Score - Player1Score >= 2 && Player1Score >= 2)  // So it does not add points if the game has ended
-            return ;
-        else
+        {   
+            if (VerboseFlag)
             {
-                Player1Score++;
+                Console.WriteLine("Warning: The game has already ended. Cannot add more points to Player1.");
             }
+            return ;
+        }
+        else
+        {
+            Player1Score++;
+        }
     }
 
     public void AddPointPlayer2()
     {
         if (Player1Score - Player2Score >= 2 && Player2Score >= 2)  // So it does not add points if the game has ended
-
+        {
+            if (VerboseFlag)
+            {
+                Console.WriteLine("Warning: The game has already ended. Cannot add more points to Player2.");
+            }
             return ;
+        }
         else
         {
             Player2Score++;            
