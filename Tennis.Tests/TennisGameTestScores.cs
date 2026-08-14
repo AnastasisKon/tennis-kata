@@ -9,6 +9,11 @@ public class TennisGameTestScore
     [InlineData(1, "15")]
     [InlineData(2, "30")]
     [InlineData(3, "40")]
+    [InlineData(4, "Invalid Score")]
+    [InlineData(100000000, "Invalid Score")]
+    [InlineData(15, "Invalid Score")]
+    [InlineData(30, "Invalid Score")]
+    [InlineData(40, "Invalid Score")]
     public void ScoreIsEncodedCorrectly(int score, string expected)
     {
         TennisGame game = new TennisGame();

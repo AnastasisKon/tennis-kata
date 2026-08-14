@@ -5,7 +5,7 @@ public class TennisGame
     private int Player1Score = 0;
     private int Player2Score = 0;
 
-    private bool VerboseFlag = true;
+    private bool VerboseFlag = false;
 
     public void AddPointPlayer1()
     {
@@ -52,7 +52,7 @@ public class TennisGame
             case 3:
                 return "40";
             default:
-                return "Unknown";  
+                return "Invalid Score";  
         }
     }
 
