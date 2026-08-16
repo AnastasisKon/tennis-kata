@@ -86,15 +86,15 @@ public class TennisGame
         {
             int Diff = ScoreDifference(Player1Score, Player2Score);
 
-            if ((Diff >= 2 && Diff <= 4 && Player1Score >= 4) || (Diff >= 2 && Diff <= 4 &&  Player2Score >= 4))
+            if (Diff >= 2 && Diff <= 4 && (Player2Score >= 4 || Player1Score >= 4))
             {
                 return $"Player{LeadingPlayer} wins!";
             }
-            else if ((Diff > 3 && Player1Score > 4) || (Diff > 3 && Player2Score > 4))
+            else if (Diff > 2 && (Player1Score > 4 || Player2Score > 4))
             {
                 return $"Invalid Scores: {Player1Score} - {Player2Score} -> {EncodeScore(Player1Score)} - {EncodeScore(Player2Score)}";
             }
-            else if ((Diff >= 1 && Player1Score >= 4) || (Diff >= 1 && Player2Score >= 4))
+            else if (Diff >= 1 && (Player1Score >= 4 || Player2Score >= 4))
             {
                 return $"Player{LeadingPlayer} has the advantage";
             }
