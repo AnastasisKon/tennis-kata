@@ -23,6 +23,8 @@ public class TennisGameTestScoreMessage
     [InlineData(5, 8, "Invalid Scores: 5 - 8 -> Invalid Score - Invalid Score")]
     [InlineData(5, 9, "Invalid Scores: 5 - 9 -> Invalid Score - Invalid Score")]
     [InlineData(5, 10, "Invalid Scores: 5 - 10 -> Invalid Score - Invalid Score")]
+    [InlineData(-5, -10, "Negative Values Detected - Invalid Scores -5 - -10")]
+    [InlineData(-1, 2, "Negative Values Detected - Invalid Scores -1 - 2")]
 
 
     public void GameScores(int score1, int score2, string expected)

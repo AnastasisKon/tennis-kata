@@ -85,6 +85,11 @@ public class TennisGame
 
     public string ScoreMessage(int Player1Score, int Player2Score)
     {   
+        if (Player1Score < 0 || Player2Score < 0)
+        {
+            return $"Negative Values Detected - Invalid Scores {Player1Score} - {Player2Score}";
+        }
+
         int LeadingPlayer = PlayerInFront(Player1Score, Player2Score);
         
         if (LeadingPlayer != 0)
