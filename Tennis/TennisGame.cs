@@ -7,9 +7,14 @@ public class TennisGame
 
     private bool VerboseFlag = false;
 
+    private bool GameHasEnded()
+    {
+        return (Player1Score >= 4 || Player2Score >= 4) && ScoreDifference(Player1Score, Player2Score) >= 2;
+    }
+
     public void AddPointPlayer1()
     {
-        if ((Player2Score - Player1Score >= 2) && Player1Score >= 2)  // So it does not add points if the game has ended
+        if (GameHasEnded())  // So it does not add points if the game has ended
         {   
             if (VerboseFlag)
             {
@@ -25,7 +30,7 @@ public class TennisGame
 
     public void AddPointPlayer2()
     {
-        if ((Player1Score - Player2Score >= 2) && Player2Score >= 2)  // So it does not add points if the game has ended
+        if (GameHasEnded())  // So it does not add points if the game has ended
         {
             if (VerboseFlag)
             {

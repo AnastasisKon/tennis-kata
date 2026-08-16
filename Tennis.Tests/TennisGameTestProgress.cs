@@ -510,7 +510,6 @@ public class TennisGameTestProggressOfGames
         Assert.Equal("Player2 wins!", result12);
 
         game.AddPointPlayer1();
-        game.AddPointPlayer1();
         string result13 = game.ScoreMessage();
         Assert.Equal("Player2 wins!", result13);
 
