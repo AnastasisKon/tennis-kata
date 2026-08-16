@@ -5,7 +5,7 @@ public class TennisGame
     private int Player1Score = 0;
     private int Player2Score = 0;
 
-    private bool VerboseFlag = true;
+    private bool VerboseFlag = false;
 
     public void AddPointPlayer1()
     {
@@ -85,16 +85,17 @@ public class TennisGame
         if (LeadingPlayer != 0)
         {
             int Diff = ScoreDifference(Player1Score, Player2Score);
+            int MaxScore = Math.Max(Player1Score, Player2Score);
 
-            if (Diff >= 2 && Diff <= 4 && (Player2Score >= 4 || Player1Score >= 4))
-            {
-                return $"Player{LeadingPlayer} wins!";
-            }
-            else if (Diff > 2 && (Player1Score > 4 || Player2Score > 4))
+            if (Diff > 2 && MaxScore > 4)
             {
                 return $"Invalid Scores: {Player1Score} - {Player2Score} -> {EncodeScore(Player1Score)} - {EncodeScore(Player2Score)}";
             }
-            else if (Diff >= 1 && (Player1Score >= 4 || Player2Score >= 4))
+            else if (Diff >= 2 && MaxScore >= 4)
+            {
+                return $"Player{LeadingPlayer} wins!";
+            }
+            else if (Diff == 1 && MaxScore >= 4)
             {
                 return $"Player{LeadingPlayer} has the advantage";
             }
