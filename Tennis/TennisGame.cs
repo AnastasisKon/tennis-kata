@@ -5,11 +5,11 @@ public class TennisGame
     private int Player1Score = 0;
     private int Player2Score = 0;
 
-    private bool VerboseFlag = false;
+    private bool VerboseFlag = true;
 
     public void AddPointPlayer1()
     {
-        if (Player2Score - Player1Score >= 2 && Player1Score >= 2)  // So it does not add points if the game has ended
+        if ((Player2Score - Player1Score >= 2) && Player1Score >= 2)  // So it does not add points if the game has ended
         {   
             if (VerboseFlag)
             {
@@ -25,7 +25,7 @@ public class TennisGame
 
     public void AddPointPlayer2()
     {
-        if (Player1Score - Player2Score >= 2 && Player2Score >= 2)  // So it does not add points if the game has ended
+        if ((Player1Score - Player2Score >= 2) && Player2Score >= 2)  // So it does not add points if the game has ended
         {
             if (VerboseFlag)
             {
@@ -74,21 +74,33 @@ public class TennisGame
     }
 
     public string ScoreMessage()
+    {
+        return ScoreMessage(Player1Score, Player2Score);
+    }
+
+    public string ScoreMessage(int Player1Score, int Player2Score)
     {   
         int LeadingPlayer = PlayerInFront(Player1Score, Player2Score);
+        
         if (LeadingPlayer != 0)
         {
-            if ((ScoreDifference(Player1Score, Player2Score) >= 2 && Player1Score >= 4) || (ScoreDifference(Player1Score, Player2Score) >= 2 && Player2Score >= 4))
+            int Diff = ScoreDifference(Player1Score, Player2Score);
+
+            if ((Diff >= 2 && Diff <= 4 && Player1Score >= 4) || (Diff >= 2 && Diff <= 4 &&  Player2Score >= 4))
             {
                 return $"Player{LeadingPlayer} wins!";
             }
-            else if ((ScoreDifference(Player1Score, Player2Score) >= 1 && Player1Score >= 4) || (ScoreDifference(Player1Score, Player2Score) >= 1 && Player2Score >= 4))
+            else if ((Diff > 3 && Player1Score > 4) || (Diff > 3 && Player2Score > 4))
+            {
+                return $"Invalid Scores: {Player1Score} - {Player2Score} -> {EncodeScore(Player1Score)} - {EncodeScore(Player2Score)}";
+            }
+            else if ((Diff >= 1 && Player1Score >= 4) || (Diff >= 1 && Player2Score >= 4))
             {
                 return $"Player{LeadingPlayer} has the advantage";
             }
             else
             {
-                return $"Player{LeadingPlayer} is {ScoreDifference(Player1Score, Player2Score)} point(s) ahead, Score: {EncodeScore(Player1Score)} - {EncodeScore(Player2Score)}";
+                return $"Player{LeadingPlayer} is {Diff} point(s) ahead, Score: {EncodeScore(Player1Score)} - {EncodeScore(Player2Score)}";
             }
         }
         else
